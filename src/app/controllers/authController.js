@@ -33,7 +33,7 @@ router.post('/authenticate', async (req, res) => {
         return res.status(403).send({ error: "Email ou senha incorretos" })
 
     user.password = undefined
-    const token = jwt.sign({ id: user.id }, process.env.JWTSECRET, { expiresIn: 30})
+    const token = jwt.sign({ id: user.id }, process.env.JWTSECRET, { expiresIn: 30000})
 
     res.send({ user, token })
 })
